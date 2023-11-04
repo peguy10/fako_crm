@@ -35,6 +35,40 @@
         </a>
     </li>
 
+    <li class="nav-item {{ Request::is('admin/policies*') ? 'active' : '' }}">
+        <a class="nav-link d-flex align-items-center py-3" aria-current="page" href="{{ route('policies.index') }}">
+            <span class="menu-icon">
+                <i class="fa-solid fas fa-shield pe-3"></i>
+            </span>
+            <span class="aside-menu-title">{{ __('polices') }}</span>
+        </a>
+    </li>
+
+    <li class="nav-item {{ Request::is('admin/policies*') ? 'active' : '' }}">
+        <a class="nav-link d-flex align-items-center py-3" aria-current="page" href="{{ route('policies.index') }}">
+            <span class="menu-icon">
+                <i class="fa-solid fas fa-file-contract pe-3"></i>
+            </span>
+            <span class="aside-menu-title">{{ __('contrats') }}</span>
+        </a>
+    </li>
+    <li class="nav-item {{ Request::is('admin/policies*') ? 'active' : '' }}">
+        <a class="nav-link d-flex align-items-center py-3" aria-current="page" href="{{ route('policies.index') }}">
+            <span class="menu-icon"> 
+                <i class="fa-solid fas fa-bullhorn pe-3"></i>
+            </span>
+            <span class="aside-menu-title">{{ __('Leads') }}</span>
+        </a>
+    </li>
+
+    <li class="nav-item {{ Request::is('admin/policies*') ? 'active' : '' }}">
+        <a class="nav-link d-flex align-items-center py-3" aria-current="page" href="{{ route('policies.index') }}">
+            <span class="menu-icon">
+                <i class="fa-solid fas fa-exchange pe-3"></i>
+            </span>
+            <span class="aside-menu-title">{{ __('Claims') }}</span>
+        </a>
+    </li>
     <li class="nav-item {{ Request::is('admin/taxes*') ? 'active' : '' }}">
         <a class="nav-link d-flex align-items-center py-3" aria-current="page" href="{{ route('taxes.index') }}">
             <span class="menu-icon">

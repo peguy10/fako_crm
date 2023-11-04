@@ -19,10 +19,10 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
-    {
-        Schema::table('transactions', function (Blueprint $table) {
-            $table->renameColumn('stripe_transaction_id', 'transaction_id');
-        });
-    }
+    // public function down(): void
+    // {
+    //     Schema::table('transactions', function (Blueprint $table) {
+    //         $table->renameColumn('stripe_transaction_id', 'transaction_id');
+    //     });
+    // }
 };

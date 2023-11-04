@@ -25,10 +25,10 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
-    {
-        Schema::table('invoices', function (Blueprint $table) {
-            $table->dropIfExists('payment_qr_code_id');
-        });
-    }
+    // public function down(): void
+    // {
+    //     Schema::table('invoices', function (Blueprint $table) {
+    //         $table->dropIfExists('payment_qr_code_id');
+    //     });
+    // }
 };

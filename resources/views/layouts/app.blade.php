@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title') | {{ getAppName() }}</title>
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset(getSettingValue('favicon_icon')) }}" type="image/png">
+    <link rel="icon" href="{{ asset('assets/images/inov.png')}}" type="image/png">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="current-date-format" content="{{ currentDateFormat() }}">
 

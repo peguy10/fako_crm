@@ -31,6 +31,8 @@ return new class extends Migration
             $table->foreign('city_id')->references('id')->on('cities')
                 ->onDelete('cascade')->onUpdate('cascade');
 
+            $table->string('niu')->unique();
+            $table->string('cni')->unique();
             $table->string('postal_code');
             $table->string('website')->nullable();
             $table->string('address');

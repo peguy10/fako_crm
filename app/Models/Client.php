@@ -14,6 +14,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $country_id
  * @property int $state_id
  * @property int $city_id
+ * @property string $niu
+ * @property string $cni
  * @property string $postal_code
  * @property string|null $website
  * @property string $address
@@ -54,6 +56,8 @@ class Client extends Model
         'country_id',
         'state_id',
         'city_id',
+        'niu',
+        'cni',
     ];
 
     protected $casts = [
@@ -65,6 +69,8 @@ class Client extends Model
         'state_id' => 'integer',
         'city_id' => 'integer',
         'user_id' => 'integer',
+        'cni' => 'integer',
+        'niu' => 'integer',
     ];
 
     /**
@@ -106,4 +112,9 @@ class Client extends Model
     {
         return $this->hasMany(Invoice::class);
     }
+    public function policies()
+    {
+        return $this->hasMany(Policy::class);
+    }
+
 }

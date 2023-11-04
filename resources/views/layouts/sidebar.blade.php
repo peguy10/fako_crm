@@ -3,7 +3,7 @@
         <a href="{{ url('/') }}" class="text-decoration-none sidebar-logo d-flex align-items-center" data-bs-toggle="tooltip"
            title="{{ (strlen(getAppName()) > 15 ) ? substr(getAppName(), 0,15).'...' : getAppName() }}">
             <div class="image image-mini me-3">
-                <img src="{{ getLogoUrl() }}"
+                <img src="{{asset('assets/images/inov.png')}}"
                      class="img-fluid object-contain" alt="profile image">
             </div>
             <span class="text-gray-900 fs-4">{{ (strlen(getAppName()) > 15 ) ? substr(getAppName(), 0,15).'...' : getAppName() }}</span>

@@ -13,6 +13,18 @@
     </div>
     <div class="col-lg-6">
         <div class="mb-5">
+            {{ Form::label('niu', __('niu').':', ['class' => 'form-label required mb-3']) }}
+            {{ Form::text('niu', null, ['class' => 'form-control', 'placeholder' =>  __('niu'), 'required']) }}
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="mb-5">
+            {{ Form::label('cni', __('cni').':', ['class' => 'form-label required mb-3']) }}
+            {{ Form::text('cni', null, ['class' => 'form-control', 'placeholder' =>  __('cni'), 'required']) }}
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="mb-5">
             {{ Form::label('email', __('messages.client.email').':', ['class' => 'form-label required mb-3']) }}
             {{ Form::email('email', null, ['class' => 'form-control', 'placeholder' =>  __('messages.client.email'), 'required']) }}
         </div>

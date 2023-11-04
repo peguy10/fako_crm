@@ -15,6 +15,7 @@ use App\Http\Controllers\PaymentQrCodeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\TaxController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Artisan;
@@ -112,6 +113,15 @@ Route::prefix('admin')->middleware(['auth', 'xss', 'role:admin'])->group(functio
         'update' => 'category.update',
         'destroy' => 'category.destroy',
     ]);
+    // route pour les polices d'assurances
+    Route::get('/policies', [PolicyController::class, 'index'])->name('policies.index');
+Route::get('/policies/create', [PolicyController::class, 'create'])->name('policies.create');
+Route::post('/policies/store', [PolicyController::class, 'store'])->name('policies.store');
+Route::get('/policies/{policy}', [PolicyController::class, 'show'])->name('policies.show');
+Route::get('/policies/{policy}/edit', [PolicyController::class, 'edit'])->name('policies.edit');
+Route::put('/policies/{policy}', [PolicyController::class, 'update'])->name('policies.update');
+Route::delete('/policies/{policy}', [PolicyController::class, 'destroy'])->name('policies.destroy');
+
 
     //Product Route
     Route::resource('products', ProductController::class);
@@ -230,6 +240,8 @@ Route::prefix('admin')->middleware(['auth', 'xss', 'role:admin'])->group(functio
 
     // currency reports for invoices route
     Route::get('currency-reports', [DashboardController::class, 'currencyReports'])->name('currency.reports');
+
+    
 });
 
 Route::prefix('client')->middleware(['auth', 'xss', 'role:client'])->group(function () {
