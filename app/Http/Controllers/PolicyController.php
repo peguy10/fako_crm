@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Policy;
 use App\Models\Client;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PoliciesExport;
 use Illuminate\Http\Request;
 
 class PolicyController extends Controller
@@ -77,5 +79,9 @@ class PolicyController extends Controller
         return redirect()->route('policies.index')->with('success1', 'La police d\'assurance a été supprimée avec succès.');
 
         // Rediriger ou retourner une réponse appropriée
+    }
+    public function exportPolicies()
+    {
+        return Excel::download(new PoliciesExport, 'policies.xlsx');
     }
 }

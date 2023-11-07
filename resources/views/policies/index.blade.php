@@ -12,6 +12,7 @@
                 <div class="col-lg-6"><h1>Liste des polices d'assurance</h1></div>
                 <div class="col-lg-6">
                     <a href="{{ route('policies.create') }}" class="btn btn-primary mb-3 float-end"><i class="fa fa-plus-circle" aria-hidden="true"></i> Créer une nouvelle police</a>
+                    <a href="{{ route('policies.export') }}" class="btn btn-success mb-3 float-end"><i class="fas fa-file-export"></i> Export</a>
                 </div>
             </div>
 
