@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    {{__('messages.products')}}
+    {{__('Sinistres')}}
 @endsection
 @section('content')
     <div class="container-fluid">
