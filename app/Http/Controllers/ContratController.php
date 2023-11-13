@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contrat;
+use App\Models\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 class ContratController extends Controller
 {
@@ -12,7 +15,8 @@ class ContratController extends Controller
      */
     public function index()
     {
-        //
+        $contrats = Contrat::all();
+        return view('contrats.index', compact('contrats'));
     }
 
     /**
@@ -20,7 +24,8 @@ class ContratController extends Controller
      */
     public function create()
     {
-        //
+        $clients = Client::all();
+        return view('contrats.create', compact('clients'));
     }
 
     /**
@@ -28,7 +33,30 @@ class ContratController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'client_id' => 'required',
+            'subject' => 'required',
+            'value' => 'required',
+            'type' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'description' => 'required',
+            'user_id' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            throw new ValidationException($validator);
+        }
+
+        try {
+            $contrat = new Contrat;
+            $contrat->fill($request->all());
+            $contrat->save();
+
+            return redirect()->back()->with('success', 'contrat enregistré avec succès.');
+        } catch (ValidationException $e) {
+            return redirect()->back()->withErrors($e->errors())->withInput();
+        }
     }
 
     /**

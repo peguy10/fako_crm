@@ -13,6 +13,17 @@ return new class extends Migration
     {
         Schema::create('contrats', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('client_id');
+            $table->string('subject');
+            $table->integer('value');
+            $table->string('type');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->longtext('description');
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

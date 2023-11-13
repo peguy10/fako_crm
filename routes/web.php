@@ -18,6 +18,8 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\SinistreController;
 use App\Http\Controllers\TaxController;
+use App\Http\Controllers\ContratController;
+use App\Http\Controllers\LeadController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
@@ -118,15 +120,22 @@ Route::prefix('admin')->middleware(['auth', 'xss', 'role:admin'])->group(functio
     Route::get('/policies', [PolicyController::class, 'index'])->name('policies.index');
     Route::get('/policies/create', [PolicyController::class, 'create'])->name('policies.create');
     Route::post('/policies/store', [PolicyController::class, 'store'])->name('policies.store');
-    Route::get('/policies/{policy}', [PolicyController::class, 'show'])->name('policies.show');
-    Route::get('/policies/{policy}/edit', [PolicyController::class, 'edit'])->name('policies.edit');
+    Route::get('/policies/{id}', [PolicyController::class, 'show'])->name('policies.show');
+    Route::get('/policies/{id}/edit', [PolicyController::class, 'edit'])->name('policies.edit');
     Route::put('/policies/{policy}', [PolicyController::class, 'update'])->name('policies.update');
     Route::delete('/policies/{policy}', [PolicyController::class, 'destroy'])->name('policies.destroy');
     Route::get('/policies/export', [PolicyController::class, 'exportPolicies'])->name('policies.export');
-
+    Route::get('billing/{id}',[PolicyController::class, 'billing'])->name('billing');
+    Route::get('/policy-pdf/{policy}', [PolicyController::class, 'policyPDF'])->name('policy.pdf');
     Route::resource('sinistres', SinistreController::class);
     //Product Route
     Route::resource('products', ProductController::class);
+
+    // lead route
+    Route::resource('leads', LeadController::class);
+
+    // contract route
+    Route::resource('contrats', ContratController::class);
 
     //Invoice
     Route::resource('invoices', InvoiceController::class);

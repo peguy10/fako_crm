@@ -39,8 +39,8 @@
                             <td>{{ $policy->end_date }}</td>
                             <td>{{ $policy->status }}</td>
                             <td>
-                                <a href="{{ route('policies.show', $policy) }}" class="p-1"><i class="fa fa-eye text-primary" aria-hidden="true"></i></a>
-                                <a href="{{ route('policies.edit', $policy) }}" class="p-1"><i class="fa fa-edit text-success" aria-hidden="true"></i></a>
+                                <a href="{{ route('policies.show', $policy->id) }}" class="p-1"><i class="fa fa-eye text-primary" aria-hidden="true"></i></a>
+                                <a href="{{ route('policies.edit', $policy->id) }}" class="p-1"><i class="fa fa-edit text-success" aria-hidden="true"></i></a>
                                 <form action="{{ route('policies.destroy', $policy) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')

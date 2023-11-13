@@ -44,16 +44,16 @@
         </a>
     </li>
 
-    <li class="nav-item {{ Request::is('admin/policies*') ? 'active' : '' }}">
-        <a class="nav-link d-flex align-items-center py-3" aria-current="page" href="{{ route('policies.index') }}">
+    <li class="nav-item {{ Request::is('admin/contrats*') ? 'active' : '' }}">
+        <a class="nav-link d-flex align-items-center py-3" aria-current="page" href="{{ route('contrats.index') }}">
             <span class="menu-icon">
                 <i class="fa-solid fas fa-file-contract pe-3"></i>
             </span>
             <span class="aside-menu-title">{{ __('contrats') }}</span>
         </a>
     </li>
-    <li class="nav-item {{ Request::is('admin/policies*') ? 'active' : '' }}">
-        <a class="nav-link d-flex align-items-center py-3" aria-current="page" href="{{ route('policies.index') }}">
+    <li class="nav-item {{ Request::is('admin/leads*') ? 'active' : '' }}">
+        <a class="nav-link d-flex align-items-center py-3" aria-current="page" href="{{ route('leads.index') }}">
             <span class="menu-icon"> 
                 <i class="fa-solid fas fa-bullhorn pe-3"></i>
             </span>
